@@ -1,0 +1,25 @@
+{
+  "name": "@afr/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/apps/api/src/index.js",
+  "types": "./dist/apps/api/src/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "demo": "node ./dist/apps/api/src/index.js",
+    "dev": "node --watch ./dist/apps/api/src/index.js",
+    "lint": "node -e \"console.log('api lint pending')\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@afr/anomaly-engine": "workspace:*",
+    "@afr/adapters": "workspace:*",
+    "@afr/demo-sample-agent": "workspace:*",
+    "@afr/incident-report": "workspace:*",
+    "@afr/recorder": "workspace:*",
+    "@afr/replay-engine": "workspace:*",
+    "@afr/risk-audit": "workspace:*",
+    "@afr/trace-core": "workspace:*"
+  }
+}

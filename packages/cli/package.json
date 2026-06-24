@@ -1,0 +1,22 @@
+{
+  "name": "@afr/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "afr": "./dist/packages/cli/src/index.js"
+  },
+  "main": "./dist/packages/cli/src/index.js",
+  "types": "./dist/packages/cli/src/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "node -e \"console.log('cli lint pending')\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@afr/demo-sample-agent": "workspace:*",
+    "@afr/mcp-proxy": "workspace:*",
+    "@afr/recorder": "workspace:*",
+    "@afr/risk-audit": "workspace:*"
+  }
+}

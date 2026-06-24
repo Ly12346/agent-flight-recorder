@@ -1,0 +1,13 @@
+{
+  "name": "@afr/trace-core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "node -e \"console.log('trace-core lint pending')\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}

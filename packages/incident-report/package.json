@@ -1,0 +1,16 @@
+{
+  "name": "@afr/incident-report",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/packages/incident-report/src/index.js",
+  "types": "./dist/packages/incident-report/src/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "node -e \"console.log('incident-report lint pending')\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@afr/trace-core": "workspace:*"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "agent-flight-recorder",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.1.2",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "demo/*"
+  ],
+  "scripts": {
+    "build": "corepack pnpm -r run build",
+    "dev": "corepack pnpm -r --parallel --if-present run dev",
+    "demo": "corepack pnpm --filter @afr/demo-sample-agent run demo && corepack pnpm --parallel --filter @afr/api --filter @afr/dashboard run demo",
+    "lint": "corepack pnpm -r run lint",
+    "typecheck": "corepack pnpm -r run typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "turbo": "^2.0.6",
+    "typescript": "^5.8.3"
+  }
+}

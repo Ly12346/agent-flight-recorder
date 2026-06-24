@@ -1,0 +1,20 @@
+{
+  "name": "@afr/demo-sample-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/demo/sample-agent/src/index.js",
+  "types": "./dist/demo/sample-agent/src/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "demo": "node ./dist/demo/sample-agent/src/index.js",
+    "lint": "node -e \"console.log('demo-sample-agent lint pending')\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@afr/mcp-proxy": "workspace:*",
+    "@afr/recorder": "workspace:*",
+    "@afr/risk-audit": "workspace:*",
+    "@afr/trace-core": "workspace:*"
+  }
+}

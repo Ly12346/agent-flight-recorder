@@ -1,0 +1,16 @@
+{
+  "name": "@afr/risk-audit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/packages/risk-audit/src/index.js",
+  "types": "./dist/packages/risk-audit/src/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "node -e \"console.log('risk-audit lint pending')\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@afr/trace-core": "workspace:*"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": [
+      "ES2023",
+      "DOM"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@afr/cli": [
+        "packages/cli/src/index.ts"
+      ],
+      "@afr/demo-sample-agent": [
+        "demo/sample-agent/src/index.ts"
+      ],
+      "@afr/mcp-proxy": [
+        "packages/mcp-proxy/src/index.ts"
+      ],
+      "@afr/anomaly-engine": [
+        "packages/anomaly-engine/src/index.ts"
+      ],
+      "@afr/adapters": [
+        "packages/adapters/src/index.ts"
+      ],
+      "@afr/incident-report": [
+        "packages/incident-report/src/index.ts"
+      ],
+      "@afr/recorder": [
+        "packages/recorder/src/index.ts"
+      ],
+      "@afr/replay-engine": [
+        "packages/replay-engine/src/index.ts"
+      ],
+      "@afr/risk-audit": [
+        "packages/risk-audit/src/index.ts"
+      ],
+      "@afr/shared-ui": [
+        "packages/shared-ui/src/index.ts"
+      ],
+      "@afr/trace-core": [
+        "packages/trace-core/src/index.ts"
+      ]
+    },
+    "strict": true,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "jsx": "react-jsx",
+    "types": [
+      "node"
+    ]
+  }
+}
