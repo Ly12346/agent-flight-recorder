@@ -2,15 +2,166 @@
 
 ## Goal
 
-Show that the same agent can be safe or unsafe, and that the platform explains and blocks the unsafe path.
+用最短时间让评委看懂三件事：
 
-## Suggested flow
+1. 这个项目不是另一个交易机器人，而是给 AI 交易 Agent 用的基础设施
+2. 它能完整回放 Agent 的决策链路
+3. 它能在危险动作发生前给出风控拦截和事故报告
 
-1. Open the dashboard and show the overview counts.
-2. Click the blocked oversized position trace.
-3. Explain the tool calls and the decision summary.
-4. Show the policy hit that blocked the action.
-5. Open the incident report section and mention that the trace can be exported as Markdown for post-mortems.
-6. Show the adapter previews for console, webhook, and Telegram payloads.
-7. Switch to the signal conflict trace to show a `warn` path instead of a block.
-8. Load `stale-data` or `revenge-trading` from the scenario toolbar to demonstrate a second incident type without changing code.
+## Recommended Runtime
+
+- 总时长：`2 分钟到 3 分钟`
+- 最佳场景顺序：
+  1. `超大仓位拦截`
+  2. `信号冲突审查`
+  3. `过期数据拦截` 或 `冷静期违规拦截`
+
+## 2-Minute Version
+
+### 0:00 - 0:15 开场
+
+画面：
+
+- 打开首页
+- 停留在 `决策中心`
+
+口播：
+
+`这是 Agent Flight Recorder + Risk Audit，一个给 AI 交易 Agent 用的黑匣子和风控审计层。`
+
+`它解决的问题不是“怎么让 Agent 更会交易”，而是“出问题之后，我们怎么知道它当时看到了什么、为什么这么决策，以及为什么风险没有被及时拦下”。`
+
+### 0:15 - 0:45 第一段：超大仓位拦截
+
+画面：
+
+- 点击 `超大仓位拦截`
+- 展示 `回放详情`
+
+口播：
+
+`这里是一条被拦截的决策记录。`
+
+`你可以看到 Agent 先调用了新闻和技术分析工具，然后形成判断，最后试图开一个高杠杆大仓位的 BTC 多单。`
+
+### 0:45 - 1:10 第二段：风控审计
+
+画面：
+
+- 往下看 `风险审计`
+- 停在 `仓位上限` 和 `杠杆上限`
+
+口播：
+
+`系统没有把这次下单当成黑箱执行，而是在动作发生前给它加了一层策略审计。`
+
+`这里可以看到它同时命中了仓位上限和杠杆上限，所以这次动作被直接拦截。`
+
+### 1:10 - 1:30 第三段：事故报告
+
+画面：
+
+- 往下看 `事故报告`
+
+口播：
+
+`除了页面回放，我们还可以直接生成一份事故报告。`
+
+`它会把决策摘要、动作、策略命中和时间线整理成结构化内容，方便复盘、交接和审计。`
+
+### 1:30 - 1:45 第四段：告警适配器
+
+画面：
+
+- 看 `告警适配器`
+
+口播：
+
+`同一条事故记录还可以转换成不同的告警载荷。`
+
+`这里展示了控制台、Webhook 和 Telegram 三种输出形式，方便接入真实告警系统。`
+
+### 1:45 - 2:05 第五段：信号冲突
+
+画面：
+
+- 回到左侧
+- 点击 `信号冲突审查`
+
+口播：
+
+`这条记录不是被硬拦截，而是进入了审查路径。`
+
+`你可以看到系统识别出了情绪和技术面的冲突，同时标记了低置信度决策。`
+
+### 2:05 - 2:25 第六段：分析页
+
+画面：
+
+- 切到 `分析`
+
+口播：
+
+`最后在分析页里，我们会把这些记录进一步抽象成异常洞察，比如超大仓位、杠杆漂移、过期数据和报复性交易模式。`
+
+### 2:25 - 2:40 收尾
+
+画面：
+
+- 保持在 `分析` 或切回 `决策中心`
+
+口播：
+
+`所以我们做的不是另一个 AI 交易机器人，而是一层让 AI 交易 Agent 变得可追踪、可解释、可控制的基础设施。`
+
+## 3-Minute Version
+
+如果你有更充足时间，可以在 2 分钟版基础上多加这两段：
+
+### 加段 A：过期数据拦截
+
+画面：
+
+- 点击 `过期数据拦截`
+
+口播：
+
+`这里展示的是数据并没有错，但是已经过期。`
+
+`系统会把过期输入识别出来，并直接阻止 Agent 在陈旧市场上下文上继续交易。`
+
+### 加段 B：冷静期违规拦截
+
+画面：
+
+- 点击 `冷静期违规拦截`
+
+口播：
+
+`这里展示的是连续亏损后的报复性交易模式。`
+
+`系统不仅能看市场，还能结合账户状态和行为模式，在冷静期内阻止 Agent 继续冒险。`
+
+## Recording Notes
+
+- 全程只演示 2 到 3 条最强记录，不要每个场景都讲
+- 不要从架构图开始讲，先讲痛点和被拦截的动作
+- 鼠标移动放慢一点，停留在：
+  - 决策摘要
+  - 风险审计
+  - 事故报告
+  - 告警适配器
+- 如果录屏时间很紧，优先保留：
+  - `超大仓位拦截`
+  - `事故报告`
+  - `分析`
+
+## One-Line Closing
+
+中文：
+
+`我们让 AI 交易 Agent 不再是黑箱执行器，而是变成可追踪、可解释、可控制的系统。`
+
+英文：
+
+`We turn AI trading agents from opaque executors into systems that are traceable, explainable, and controllable.`
