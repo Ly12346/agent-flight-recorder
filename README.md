@@ -146,5 +146,3 @@ API 已提供以下接口：
 ## Additional Docs
 
 - [Architecture](./docs/architecture.md)
-- [Demo Script](./docs/demo-script.md)
-- [Submission Kit](./docs/submission-kit.md)
